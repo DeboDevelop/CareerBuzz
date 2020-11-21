@@ -71,7 +71,7 @@ module.exports = function(app) {
 								newUser.password = hashedPassword;
 								try {
 									const user = await newUser.save();
-									res.redirect("/");
+									res.redirect("/login");
 								} catch (e) {
 									console.log(e);
 								}
