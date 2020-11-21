@@ -86,16 +86,18 @@ module.exports = function(app) {
 		}
 	});
 
-	app.post("/room", function(req, res) {
+	app.post("/room", async function(req, res) {
 		const { username, password, roomName } = req.body;
 		if (availableRooms.includes(roomName)) {
-			if (
-				(username === "avirupdutta" && password === "123456") ||
-				(username === "johndoe" && password === "123456") ||
-				(username === "davidkumar" && password === "123456") ||
-				(username === "tonykumar" && password === "123456")
-			) {
-				return res.render("room", { username, roomName });
+			let user = await User.findOne({name: username});
+			if (user != null) {
+			  try {
+				if(await bcryptjs.compare(password, user.password)) {
+					return res.render("room", { username, roomName });
+				} 
+			  } catch(e) {
+				console.log(e);
+			  }
 			}
 		}
 		return res.redirect("/");
