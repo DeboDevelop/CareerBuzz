@@ -1,4 +1,4 @@
-# Socketty
+# CareerBuzz
 
 ## How to setup & run?
 

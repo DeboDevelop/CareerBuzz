@@ -1,5 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const http = require("http");
+const mongoose = require("mongoose");
 const socket = require("./socket");
 const settings = require("./settings");
 const routes = require("./routes");
@@ -7,6 +9,14 @@ const routes = require("./routes");
 // creating the http server
 const app = express();
 const server = http.Server(app);
+
+mongoose.connect(process.env.DATABASE_URL, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
+const db = mongoose.connection;
+db.on("error", error => console.error(error));
+db.once("open", () => console.log("Connected to Database"));
 
 // adding custom settings
 settings(app);
