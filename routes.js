@@ -2,9 +2,12 @@ const bcryptjs = require("bcryptjs");
 const User = require("./models/users");
 
 module.exports = function(app) {
-	const availableRooms = ["python", "javascript", "java", "php", "go"];
+	const availableRooms = ["JEE", "UPSC", "NIMCET", "Banking", "Railway"];
 
 	app.get("/", function(req, res) {
+		res.render("index");
+	});
+	app.get("/login", function(req, res) {
 		res.render("login");
 	});
 
@@ -13,7 +16,7 @@ module.exports = function(app) {
 	});
 
 	app.get("/room", function(req, res) {
-		res.redirect("/");
+		res.redirect("/login");
 	});
 
 	app.post("/register", async function(req, res) {
@@ -100,6 +103,6 @@ module.exports = function(app) {
 			  }
 			}
 		}
-		return res.redirect("/");
+		return res.redirect("/login");
 	});
 };
