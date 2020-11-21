@@ -2,7 +2,11 @@ module.exports = function(app) {
 	const availableRooms = ["python", "javascript", "java", "php", "go"];
 
 	app.get("/", function(req, res) {
-		res.render("index");
+		res.render("login");
+	});
+
+	app.get("/register", function(req, res) {
+		res.render("register");
 	});
 
 	app.get("/room", function(req, res) {
