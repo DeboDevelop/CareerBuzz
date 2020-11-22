@@ -6,11 +6,13 @@ const socket = require("./socket");
 const settings = require("./settings");
 const routes = require("./routes");
 
+let DATABASE_URL = require("./keys").mongoURI;
+
 // creating the http server
 const app = express();
 const server = http.Server(app);
 
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(DATABASE_URL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
