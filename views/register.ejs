@@ -14,27 +14,34 @@
 				<div class="logo_part text-center">
 					<img src="img/icon.png" alt="main_icon" class="logo">
 				</div>
+				<%- include ("./partials/messages") %>
 				<form action="/register" method="POST">
 					<label for="name">Username:</label>
 					<input
 						type="text"
 						name="name"
 						class="text-input"
-						required
+						placeholder="Enter username"
+						<% if(typeof name != 'undefined'){ %>
+							value=<%= name %>
+						<% } %>
 					/><br />
 					<label for="email">Email:</label>
 					<input
 						type="email"
 						name="email"
 						class="text-input"
-						required
+						placeholder="Enter email"
+						<% if(typeof email != 'undefined'){ %>
+							value=<%= email %>
+						<% } %>
 					/><br />
 					<label for="password">Password:</label>
 					<input
 						type="password"
 						name="password"
+						placeholder="Enter password"
 						class="text-input"
-						required
 					/>
 					<br />
 					<label for="password2">Password Confirmation:</label>
@@ -42,7 +49,7 @@
 						type="password"
 						name="password2"
 						class="text-input"
-						required
+						placeholder="Re-enter password"
 					/>
 					<br />
 					<button type="submit" class="button">

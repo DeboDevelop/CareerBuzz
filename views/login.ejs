@@ -15,14 +15,17 @@
 				<div class="logo_part text-center">
 					<img src="img/icon.png" alt="main_icon" class="logo">
 				</div>
-				<form action="/room" method="POST">
+				<%- include ("./partials/messages") %>
+				<form action="/login" method="POST">
 					<label for="username">Username: </label>
 					<input
 						type="text"
 						name="username"
 						class="text-input"
-						placeholder="Enter Username"
-						required
+						placeholder="Enter username"
+						<% if(typeof username != 'undefined'){ %>
+							value=<%= username %>
+						<% } %>
 					/><br />
 					<label for="username">Password: </label>
 					<input
@@ -30,11 +33,10 @@
 						name="password"
 						class="text-input"
 						placeholder="Enter password"
-						required
 					/>
 					<br />
 					<label for="username">Choose your room: </label>
-					<select name="roomName" class="select_class" required>
+					<select name="roomName" class="select_class">
 						<option value="">---</option>
 						<option value="JEE">JEE</option>
 						<option value="UPSC">UPSC</option>

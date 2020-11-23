@@ -36,9 +36,7 @@ module.exports = function(app) {
 			res.render("register", {
 				errors,
 				name,
-				email,
-				password,
-				password2,
+				email
 			});
 		} else {
 			try {
@@ -48,9 +46,7 @@ module.exports = function(app) {
 					res.render("register", {
 						errors,
 						name,
-						email,
-						password,
-						password2
+						email
 					});
 				} else {
 					const newUser = new User({
@@ -89,20 +85,29 @@ module.exports = function(app) {
 		}
 	});
 
-	app.post("/room", async function(req, res) {
+	app.post("/login", async function(req, res) {
 		const { username, password, roomName } = req.body;
+		let errors = [];
+		if(!username || !password || !roomName) {
+			errors.push({ msg: "Please enter all fields" });
+			return res.render("login", { errors, username });
+		}
 		if (availableRooms.includes(roomName)) {
 			let user = await User.findOne({name: username});
 			if (user != null) {
 			  try {
 				if(await bcryptjs.compare(password, user.password)) {
 					return res.render("room", { username, roomName });
-				} 
+				} else {
+					errors.push({ msg: "The username and password doesn't match" });
+				}
 			  } catch(e) {
 				console.log(e);
 			  }
+			} else {
+				errors.push({ msg: "Enter valid username" });
 			}
 		}
-		return res.redirect("/login");
+		return res.render("login", { errors, username });
 	});
 };
