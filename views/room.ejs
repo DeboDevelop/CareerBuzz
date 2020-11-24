@@ -4,33 +4,45 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>CareerBuzz</title>
-		<link rel="icon" href="img/favicon.png" type="image/gif" sizes="16x16">
+		<link
+			rel="icon"
+			href="img/favicon.png"
+			type="image/gif"
+			sizes="16x16"
+		/>
 		<link rel="stylesheet" href="./css/room.css" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+			integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+			crossorigin="anonymous"
+		/>
 		<link
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
 			rel="stylesheet"
 		/>
 	</head>
+
 	<body id="body">
 		<header>
 			<nav class="nav">
 				<div>
-					<img src="img/icon.png" alt="main_icon" class="logo">
-					<a class="navbar-brand" id="brand-name" href="/"><strong>Career</strong>Buzz</a>
+					<img src="img/icon.png" alt="main_icon" class="logo" />
+					<a class="navbar-brand" id="brand-name" href="/"
+						><strong>Career</strong>Buzz</a
+					>
 				</div>
 				<div class="mt-2" id="div-username">
 					<strong id="username"><%= username %></strong>
 					<div id="online"></div>
 				</div>
 				<div class="mt-4 mr-3">
-					<a href="/login" class="btn btn-lg" id="logout">Logout
-					</a>
+					<a href="/login" class="btn btn-lg" id="logout">Logout </a>
 				</div>
 			</nav>
 		</header>
-		<main class="m-4" id="main-body">
+		<main class="mx-auto mt-5" id="main-body">
 			<div id="room-header">
 				<h1 class="text-center text-capitalize">
 					<span id="roomName"><%= roomName %></span>
@@ -39,14 +51,10 @@
 			<div id="inner-body">
 				<div class="text-center text-capitalize" id="member-list">
 					<h3 class="mt-3 mb-3">Members</h3>
-					<div id="roomUsers">
-					</div>
+					<div id="roomUsers"></div>
 				</div>
 				<div id="chat">
-					<div
-						class="all-messages"
-						id="allMessages"
-					></div>
+					<div class="all-messages" id="allMessages"></div>
 					<form action="#" class="w-100 mt-1">
 						<div class="input-group">
 							<input
@@ -57,13 +65,8 @@
 								id="message"
 							/>
 							<div class="input-group-append pb-1 pr-1">
-								<button
-									class="btn"
-									type="submit"
-									id="sendBtn">
-									<span class="material-icons">
-										send
-									</span>
+								<button class="btn" type="submit" id="sendBtn">
+									<span class="material-icons"> send </span>
 								</button>
 							</div>
 						</div>
