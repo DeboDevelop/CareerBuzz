@@ -62,21 +62,21 @@ function renderRoomUsers(data, type) {
 	// add new room user
 	roomUsers.innerHTML = "";
 	data.roomUsers.forEach(
-		user => (roomUsers.innerHTML += `<p>${user.username}</p>`)
+		user => (roomUsers.innerHTML += `<p class="user-decoration">${user.username}</p>`)
 	);
 	scrollToBottom();
 }
 
 function appendNewMessage({ username, message }, myMsg = false) {
 	const style = {
-		background: myMsg ? "bg-primary" : "bg-white",
+		background: myMsg ? "purple" : "grey",
 		textColor: myMsg ? "text-white" : "",
-		border: myMsg ? "border-primary" : ""
+		border: myMsg ? "text-white" : ""
 	};
 	allMessages.innerHTML += `
-        <div class="new-message w-50 ${myMsg ? "ml-auto" : ""} ${
+        <div class="new-message round-message w-50 ${myMsg ? "ml-auto" : ""} ${
 		style.background
-	} ${style.textColor} ${style.border} rounded m-3 pl-4 pt-3 border">
+	} ${style.textColor} ${style.border} m-3 pl-4 pt-3 border">
             ${myMsg ? "" : `<p class="text-muted">${username}</p>`}
             <p>${message}</p>
         </div>

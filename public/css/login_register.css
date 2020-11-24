@@ -67,7 +67,6 @@ body {
 .button:hover {
     background-color: #ff1f5a;
     transition: 0.5s;
-    /* border: 1px solid red; */
 }
 
 #redirect_register {
