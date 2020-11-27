@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerBuzz</title>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat"
+    rel="stylesheet">
 </head>
 <body>
-    <h1>Home Page</h1>
-    <br>
-    <a href="/login">Login</a>
-    <br>
-    <a href="/register">Register</a>
+
+    <header class="site-headers">
+        <nav>
+            <div class="logo"> 
+                <h1>CareerBuzz</h1>
+            </div>
+            <!---<div class="menu">
+                <ul>
+                    <li>Login</li>
+                    <li>Register</li>
+                </ul>
+            </div>--->
+        </nav>
+        <section>
+            <div class="leftside"> 
+                <img src="img/img1.png">
+            </div>
+            <div class="rightside"> 
+                <h1>CareerBuzz</h1>
+                <p>An IRC style chat for aspirants of different competitive examination.</p>
+                <button onclick="location.href = '/login';">Login</button>
+                <button onclick="location.href = '/register';">Register</button>
+            </div>
+        </section>
+    </header>
 </body>
 </html>
+
