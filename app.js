@@ -6,15 +6,17 @@ const socket = require("./socket");
 const settings = require("./settings");
 const routes = require("./routes");
 
-let DATABASE_URL = require("./keys").mongoURI;
+const PORT = process.env.PORT || 3000;
+
+const DATABASE_URL = require("./keys").mongoURI;
 
 // creating the http server
 const app = express();
 const server = http.Server(app);
 
 mongoose.connect(DATABASE_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 });
 const db = mongoose.connection;
 db.on("error", error => console.error(error));
@@ -29,4 +31,4 @@ socket(server);
 // setting up the routes
 routes(app);
 
-server.listen(3000, console.log("Server is running at http://localhost:3000"));
+server.listen(PORT, console.log("Server is running at http://localhost:3000"));
